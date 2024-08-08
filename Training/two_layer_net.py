@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 import numpy as np
-from Training.numerical_diff import gradient
+from Training.numerical_diff import numerical_gradient
 from Network.network import sigmoid, softmax
 
 class TwoLayerNet:
@@ -61,10 +61,10 @@ class TwoLayerNet:
         loss_W = lambda W: self.loss(x, t)
 
         grads = {}
-        grads['W1'] = gradient(loss_W, self.params['W1']) # W1은 2차원 데이터 784, 50
-        grads['b1'] = gradient(loss_W, self.params['b1'])
-        grads['W2'] = gradient(loss_W, self.params['W2'])
-        grads['b2'] = gradient(loss_W, self.params['b2'])
+        grads['W1'] = numerical_gradient(loss_W, self.params['W1']) # W1은 2차원 데이터 784, 50
+        grads['b1'] = numerical_gradient(loss_W, self.params['b1'])
+        grads['W2'] = numerical_gradient(loss_W, self.params['W2'])
+        grads['b2'] = numerical_gradient(loss_W, self.params['b2'])
 
         return grads
     

@@ -30,18 +30,6 @@ class perceptronLogic :
         s2 = self.OR()
         new_neuron = perceptronLogic(np.array([s1, s2]))
         return new_neuron.AND()
-"""
-attrList = [[0,0], [0,1], [1,0], [1,1]]
-attrArr = np.array(attrList)
-print(attrArr[0])
-p = perceptronLogic(attrArr[0])
-
-for i in np.arange(4):
-    print(attrList[i],'\'s And is',p.AND(), 'NAND is',p.NAND(),'OR is', p.OR(),'XOR is', p.XOR())
-    if i<3:
-        p.setAttribute(attrArr[i+1])
-
-"""
 
   
 

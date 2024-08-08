@@ -1,6 +1,10 @@
-import sys, os
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+"""Providing TwoLayerNetwork with numerical gradient"""
+import os
+import sys
+
 import numpy as np
+
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from Training.numerical_diff import gradient
 from Network.network import sigmoid, softmax
 
@@ -67,7 +71,3 @@ class TwoLayerNet:
         grads['b2'] = gradient(loss_W, self.params['b2'])
 
         return grads
-    
-    
-
-

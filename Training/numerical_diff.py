@@ -1,3 +1,5 @@
+"""Providing gradient method"""
+
 import numpy as np
 
 def numerical_diff (f, x):

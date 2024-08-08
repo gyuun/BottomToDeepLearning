@@ -32,7 +32,7 @@ def partial_diff(f, x):
     print('dx0 ', res[0], 'dx1', res[1])
 
 
-def gradient(f, x):
+def numerical_gradient(f, x):
     """f에 대해 x 에서의 gradient 를 반환한다.
     
     parameter : (f : 미분할 함수), (x : ndarray)

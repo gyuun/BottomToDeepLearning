@@ -1,3 +1,4 @@
+"""Providing actvating function"""
 import numpy as np
 def stair(x):
     if x<=0 :

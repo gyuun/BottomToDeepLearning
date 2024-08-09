@@ -1,47 +1,47 @@
+"""describing perceptron node"""
 import numpy as np
-class perceptronLogic :
+
+class PerceptronLogic :
+    """논리게이트를 퍼셉트론으로 나타낸 클래스"""
     def __init__ (self, x):
+        """생성자"""
         # x is nd.array()
         self.x = np.append(x, 1)
 
-    def setAttribute(self, x):
+    def set_attribute(self, x):
+        """입력값 변경"""
         self.x = np.append(x, 1)
 
     def result(self, w):
-        if(np.sum(np.dot(self.x, w)) > 0) :
+        """신경곱 결과"""
+        if np.sum(np.dot(self.x, w) > 0) :
             return 1
-        else:
-            return 0
-    
-    def AND(self) :
+        return 0
+
+    def and_gate(self):
+        """AND 게이트"""
         w = np.array([0.5, 0.5, -0.7])
+
         return self.result(w)
-        
-    def NAND(self) :
+
+    def nand_gate(self):
+        """NAND 게이트"""
         w = np.array([-0.5, -0.5, 0.7])
         return self.result(w)
-        
-    def OR(self) :
+
+    def or_gate(self):
+        """OR 게이트"""
         w = np.array([0.5, 0.5, -0.3])
+
         return self.result(w)
-    
-    def XOR(self) :
-        s1 = self.NAND()
-        s2 = self.OR()
-        new_neuron = perceptronLogic(np.array([s1, s2]))
-        return new_neuron.AND()
-"""
-attrList = [[0,0], [0,1], [1,0], [1,1]]
-attrArr = np.array(attrList)
-print(attrArr[0])
-p = perceptronLogic(attrArr[0])
 
-for i in np.arange(4):
-    print(attrList[i],'\'s And is',p.AND(), 'NAND is',p.NAND(),'OR is', p.OR(),'XOR is', p.XOR())
-    if i<3:
-        p.setAttribute(attrArr[i+1])
+    def xor_gate(self):
+        """XOR 게이트"""
+        s1 = self.nand_gate()
+        s2 = self.or_gate()
+        new_neuron = PerceptronLogic(np.array([s1, s2]))
 
-"""
+        return new_neuron.and_gate()
 
   
 
